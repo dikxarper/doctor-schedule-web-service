@@ -43,7 +43,7 @@
             </a>
             <a href="/reg" class="btn btn-primary">
               Зарегистрироваться
-           </a>
+            </a>
           </div>
         </nav>
       </div>
@@ -51,55 +51,43 @@
 
     <main class="flex-shrink-0 mb-5">
       <div class="container">
-        <div class="content-table-container">
-          <div class="content-table-title">Doctor's Schedule</div>
-          <div class="content-table mt-4">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <form action="/auth" method="post">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="username" class="form-control" required/>
+              <label class="form-label" for="username">ИИН</label>
+            </div>
+          
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="password" class="form-control" required/>
+              <label class="form-label" for="password">Пароль</label>
+            </div>
+          
+            <!-- 2 column grid layout for inline styling
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                 Checkbox 
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                  <label class="form-check-label" for="form2Example31"> Запомнить меня </label>
+                </div>
+              </div>
+          
+              <div class="col">
+                 Simple link 
+                <a href="#!">Забыли Пароль?</a>
+              </div>
+            </div>  -->
+          
+            <!-- Submit button -->
+            <input type="submit" class="btn btn-primary btn-block mb-4" value="Логин">
+          
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Не загистрированы? <a href="#!">Регистрация</a></p>
+            </div>
+          </form>
       </div>
     </main>
 

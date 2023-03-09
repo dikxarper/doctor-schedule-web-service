@@ -43,7 +43,7 @@
             </a>
             <a href="/reg" class="btn btn-primary">
               Зарегистрироваться
-           </a>
+            </a>
           </div>
         </nav>
       </div>
@@ -51,55 +51,49 @@
 
     <main class="flex-shrink-0 mb-5">
       <div class="container">
-        <div class="content-table-container">
-          <div class="content-table-title">Doctor's Schedule</div>
-          <div class="content-table mt-4">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <form>
+            <!-- IIN input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="formIIN" class="form-control" />
+              <label class="form-label" for="formIIN">ИИН</label>
+            </div>
+          
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="form2Pass" class="form-control" />
+              <label class="form-label" for="form2Pass">Пароль</label>
+            </div>
+
+            <!-- LastName input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="form2LastName" class="form-control" />
+                <label class="form-label" for="form2LastName">Фамилия</label>
+            </div>
+
+            <!-- FirstName input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="form2FirstName" class="form-control" />
+                <label class="form-label" for="form2FirstName">Имя</label>
+            </div>
+          
+            <!-- INFO ABOUT -->
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+              </div>
+          
+              <div class="col">
+                <!-- Simple link -->
+              </div>
+            </div>
+          
+            <!-- Submit button -->
+            <button type="button" class="btn btn-primary btn-block mb-4">Регистрация</button>
+          
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Вы загитрированы? <a href="#!">Залогиниться</a></p>
+            </div>
+          </form>
       </div>
     </main>
 
