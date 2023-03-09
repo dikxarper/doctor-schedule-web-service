@@ -44,7 +44,7 @@ app.use(express.static("public"))
 app.get("/", (req, res) => {
   res.render("index.ejs")
 })
-
+//
 // Start the server and listen for incoming requests on a specified port
 app.listen(process.env.PORT, (err) => {
   if (err) return console.log(err)
