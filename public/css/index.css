@@ -1,0 +1,34 @@
+body {
+  box-sizing: border-box;
+}
+
+/* Navbar */
+
+.header_logo {
+  width: 15.626rem;
+  height: calc(width/2.66);
+}
+
+.nav-link {
+  font-size: 1.2rem !important;
+  margin: 0 1.5rem;
+}
+
+#nav-link > a:hover {
+  color: #316f91 !important;
+}
+
+/* Content Table */
+.content-table-container {
+  margin-top: 5rem;
+}
+
+.content-table-title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Footer */
+.footer-text {
+  text-align: center;
+}
