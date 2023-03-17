@@ -1,100 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/index.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="/css/content-table.css" />
+
     <title>Index</title>
   </head>
-  <body class="d-flex flex-column min-vh-100" cz-shortcut-listen="true">
-    <header>
-      <div class="container">
-        <nav
-          class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
-        >
-          <a
-            href="/"
-            class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
-          >
-            <img class="header_logo" src="img/header_logo.png" />
-          </a>
-
-          <ul
-            class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0"
-          >
-            <li id="nav-link" class="nav-item">
-              <a href="#" class="nav-link px-2 link-dark">Главная</a>
-            </li>
-            <li id="nav-link" class="nav-item">
-              <a href="#" class="nav-link px-2 link-dark">О нас</a>
+  <body>
+    <main class="flex-shrink-0 mb-5">
+      <div class="content-table-container">
+        <div class="content-table-title mb-3">Doctor's Schedule</div>
+        <div class="content-table-menu">
+          <ul>
+            <li class="dropdown">
+              <a href="#" class="dropbtn"
+                >Этаж
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-caret-down"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"
+                  />
+                </svg>
+              </a>
+              <div class="dropdown-content">
+                <a href="#" data-show="content-1">Этаж 1</a>
+                <a href="#" data-show="content-2">Этаж 2</a>
+                <a href="#" data-show="content-3">Этаж 3</a>
+              </div>
             </li>
           </ul>
-
-          <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2">
-              Войти
-            </button>
-            <button type="button" class="btn btn-primary">
-              Зарегистрироваться
-            </button>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <main class="flex-shrink-0 mb-5">
-      <div class="container">
-        <div class="content-table-container">
-          <div class="content-table-title">Doctor's Schedule</div>
-          <div class="content-table mt-4">
+        </div>
+        <div class="content-table mt-4">
+          <div class="content active" id="content-1">
+            <h1 class="mb-3">Option 1 Content</h1>
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th scope="col" rowspan="2">#</th>
+                  <th scope="col" rowspan="2">Name</th>
+                  <th scope="col" rowspan="2">Lastname</th>
+                  <th scope="col" rowspan="2">Email</th>
+                  <th scope="col" colspan="7">Schedule</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                  <th></th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>Пон</td>
+                  <td>Вт</td>
+                  <td>Ср</td>
+                  <td>Чт</td>
+                  <td>Пт</td>
+                  <td>Суб</td>
+                  <td>Вс</td>
                 </tr>
                 <tr>
-                  <th scope="row">2</th>
+                  <th scope="row">1</th>
                   <td>Jacob</td>
                   <td>Thornton</td>
-                  <td>@fat</td>
+                  <td>jacob_thornton@gmail.com</td>
+                  <td>10:00 - 18:00</td>
+                  <td>08:00 - 20:00</td>
+                  <td>10:00 - 18:00</td>
+                  <td>10:00 - 18:00</td>
+                  <td>10:00 - 18:00</td>
+                  <td>Выходной</td>
+                  <td>Выходной</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="content" id="content-2">
+            <h1>Option 2 Content</h1>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col" rowspan="2">#</th>
+                  <th scope="col" rowspan="2">Name</th>
+                  <th scope="col" rowspan="2">Lastname</th>
+                  <th scope="col" rowspan="2">Email</th>
+                  <th scope="col" colspan="7">Schedule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th></th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>Пон</td>
+                  <td>Вт</td>
+                  <td>Ср</td>
+                  <td>Чт</td>
+                  <td>Пт</td>
+                  <td>Суб</td>
+                  <td>Вс</td>
                 </tr>
                 <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Lawrence</td>
+                  <td>mark_lawrence@gmail.com</td>
+                  <td>10:00 - 18:00</td>
+                  <td>08:00 - 20:00</td>
+                  <td>10:00 - 18:00</td>
+                  <td>10:00 - 18:00</td>
+                  <td>10:00 - 18:00</td>
+                  <td>Выходной</td>
+                  <td>Выходной</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="content" id="content-3">
+            <h1>Option 3 Content</h1>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col" rowspan="2">#</th>
+                  <th scope="col" rowspan="2">Name</th>
+                  <th scope="col" rowspan="2">Lastname</th>
+                  <th scope="col" rowspan="2">Email</th>
+                  <th scope="col" colspan="7">Schedule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th></th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>Пон</td>
+                  <td>Вт</td>
+                  <td>Ср</td>
+                  <td>Чт</td>
+                  <td>Пт</td>
+                  <td>Суб</td>
+                  <td>Вс</td>
                 </tr>
                 <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
+                  <th scope="row">1</th>
+                  <td>Parkinson</td>
+                  <td>Hermet</td>
+                  <td>parkinson_hermet@gmail.com</td>
+                  <td>10:00 - 18:00</td>
+                  <td>08:00 - 20:00</td>
+                  <td>10:00 - 18:00</td>
+                  <td>10:00 - 18:00</td>
+                  <td>10:00 - 18:00</td>
+                  <td>Выходной</td>
+                  <td>Выходной</td>
                 </tr>
               </tbody>
             </table>
@@ -103,16 +166,6 @@
       </div>
     </main>
 
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container">
-        <div class="footer-text">A-Class Medical</div>
-      </div>
-    </footer>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
+    <script src="/js/content-table.js"></script>
   </body>
 </html>

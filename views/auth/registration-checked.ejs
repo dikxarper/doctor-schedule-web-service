@@ -1,0 +1,89 @@
+<head>
+  <title>Registration</title>
+  <link rel="stylesheet" href="/css/auth.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card border-0 shadow rounded-3 my-5">
+            <div class="card-body p-4 p-sm-5">
+              <h3 class="card-title text-center mb-5 fs-5">Регистрация</h3>
+              <form action="/login" method="post">
+                <div class="form-floating mb-3">
+                  <input
+                    name="name"
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                  />
+                  <label for="floatingInput">Имя</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    name="lastname"
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                  />
+                  <label for="floatingInput">Фамилия</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    name="middlename"
+                    type="text"
+                    class="form-control"
+                    id="floatingInput"
+                  />
+                  <label for="floatingInput">Отчество</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <select
+                    id="my-select"
+                    name="department"
+                    class="form-select form-select-custom form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option value="" disabled>Выберите отделение</option>
+                    <option value="1">Хирургическое отделение</option>
+                    <option value="2">Терапия</option>
+                    <option value="3">Гемодиализ</option>
+                  </select>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <select
+                    id="my-select"
+                    name="department"
+                    class="form-select form-select-custom form-select-sm"
+                    aria-label=".form-select-sm example"
+                  >
+                    <option value="" disabled>Выберите должность</option>
+                    <option value="1">Врач</option>
+                    <option value="2">Медсестра</option>
+                    <option value="3">Гемодиализ</option>
+                  </select>
+                </div>
+                <div class="d-grid">
+                  <button class="btn btn-primary btn-block" type="submit">
+                    Зарегистрироваться
+                  </button>
+                </div>
+                <hr class="my-4" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function hideLabel() {
+      var label = document.querySelector('label[for="my-select"]')
+      label.style.display = "none"
+    }
+  </script>
+</body>

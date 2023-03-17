@@ -18,17 +18,12 @@ body {
   color: #316f91 !important;
 }
 
-/* Content Table */
-.content-table-container {
-  margin-top: 5rem;
-}
-
-.content-table-title {
-  font-size: 2rem;
-  text-align: center;
-}
-
 /* Footer */
+
 .footer-text {
   text-align: center;
+}
+
+.footer-custom {
+  background-color: #f5f5f5 !important;
 }
