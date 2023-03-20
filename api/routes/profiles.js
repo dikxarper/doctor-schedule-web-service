@@ -1,8 +1,7 @@
 import { Router } from "express"
+import { getProfile, postProfile } from "../controllers/profile.js"
 const router = Router()
 
-router.get("/", (req, res) => {
-  res.render("profile")
-})
+router.get("/", getProfile)
 
 export { router as profileRoute }
