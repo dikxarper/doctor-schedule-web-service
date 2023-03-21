@@ -10,6 +10,7 @@ const __dirname = dirname(__filename)
 
 import express from "express"
 import expressLayouts from "express-ejs-layouts"
+import session from "express-session"
 
 // Define routes
 import { authRoute } from "./api/routes/authorizations.js"
@@ -38,6 +39,20 @@ app.set("view engine", "ejs")
 app.set("views", __dirname + "/views")
 app.set("layout", "layouts/layout")
 
+// session middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+  })
+)
+
+app.use((req, res, next) => {
+  console.log(req.session.user_id)
+  res.locals.session = req.session
+  next()
+})
 // Mount the static middleware to serve static files in the public folder
 app.use(express.static(__dirname + "/public"))
 
@@ -75,6 +90,9 @@ app.post("/register", (req, res) => {
     }
   )
 })
+
+// Partial
+app.get("/partials", (req, res) => {})
 
 // Start the server and listen for incoming requests on a specified port
 app.listen(process.env.PORT, (error) => {

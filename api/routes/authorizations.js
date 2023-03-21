@@ -3,14 +3,13 @@ import * as AuthController from "../controllers/authorization.js"
 
 const router = Router()
 
-router.get("/", AuthController.getLogin)
+router.route("/").get(AuthController.getLogin)
+router.route("/").post(AuthController.postLogin)
 
-router.post("/login", (req, res) => {})
+router.route("/register").get(AuthController.getRegister)
+router.route("/register").post(AuthController.postRegister)
 
-router.get("/register", AuthController.getRegister)
-
-router.post("/register", (req, res) => {})
-
-router.get("/register-checked", AuthController.getCheckRegister)
+router.route("/register/checked").get(AuthController.getCheckRegister)
+router.route("/register/checked").post(AuthController.postCheckRegister)
 
 export { router as authRoute }

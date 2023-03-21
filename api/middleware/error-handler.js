@@ -1,5 +1,5 @@
-const errorHandlerMiddleware = async (e, req, res, next) => {
-  console.log(e)
+const errorHandlerMiddleware = async (error, req, res, next) => {
+  console.log(error)
   return res.status(500).json({ msg: "Something went wrong, please try again" })
 }
 
