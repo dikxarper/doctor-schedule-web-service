@@ -9,7 +9,10 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 import express from "express"
+import morgan from "morgan"
+import passport from "passport"
 import expressLayouts from "express-ejs-layouts"
+import "express-async-errors"
 import session from "express-session"
 
 // Define routes
@@ -20,10 +23,10 @@ import { indexRoute } from "./api/routes/index.js"
 
 // Define midllewares
 import { notFoundMiddleware } from "./api/middleware/not-found.js"
-import { errorMiddleware } from "./api/middleware/error-handler.js"
+import { authMiddleware } from "./api/middleware/authentication.js"
 
 // Database MySQL connection
-import { connection } from "./api/db/connect.js"
+import { connection } from "./config/db.js"
 connection.connect(function (error) {
   if (error) {
     console.error("error connecting: " + error.stack)
@@ -33,6 +36,7 @@ connection.connect(function (error) {
 })
 
 const app = express()
+const PORT = process.env.PORT || 5000
 
 // Set the view engine to EJS
 app.set("view engine", "ejs")
@@ -43,16 +47,26 @@ app.set("layout", "layouts/layout")
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
   })
 )
 
+// Logging
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"))
+}
+
+// Passport middleware
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Header thing
 app.use((req, res, next) => {
-  console.log(req.session.user_id)
   res.locals.session = req.session
   next()
 })
+
 // Mount the static middleware to serve static files in the public folder
 app.use(express.static(__dirname + "/public"))
 
@@ -64,39 +78,16 @@ app.use(express.json())
 app.use("/", indexRoute)
 app.use("/auth", authRoute)
 app.use("/about", aboutRoute)
-app.use("/profile", profileRoute)
+app.use("/profile", authMiddleware, profileRoute)
 
-// Midllewares
-app.use(errorMiddleware)
+// Error handlers
 app.use(notFoundMiddleware)
-
-// POST register
-app.post("/register", (req, res) => {
-  const { name, lastname, email, password } = req.body
-
-  connection.query(
-    "INSERT INTO users SET ?",
-    {
-      name: name,
-      lastname: lastname,
-      email: email,
-      password: password,
-    },
-    (error, results) => {
-      if (error) console.log(error)
-      else {
-        return res.render("auth")
-      }
-    }
-  )
-})
 
 // Partial
 app.get("/partials", (req, res) => {})
 
 // Start the server and listen for incoming requests on a specified port
-app.listen(process.env.PORT, (error) => {
-  if (error) return console.log(error)
-
-  console.log("Server is listening on " + process.env.PORT)
-})
+app.listen(
+  PORT,
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+)
