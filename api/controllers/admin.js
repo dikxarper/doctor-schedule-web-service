@@ -22,14 +22,6 @@ export async function getAdmin(req, res) {
   }
 }
 
-export async function postAdmin(req, res) {
-  try {
-  } catch (error) {
-    if (error) console.log(error)
-    return res.send("Error")
-  }
-}
-
 export async function getAdminNew(req, res) {
   try {
     return res.render("admin/admin_new")

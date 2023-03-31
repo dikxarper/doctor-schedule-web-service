@@ -1,6 +1,5 @@
 import { connection } from "../../config/db.js"
 
-// GET
 export async function getIndex(req, res) {
   connection.query(
     "SELECT d.doctor_id, UPPER(LEFT(firstname, 1)) AS fname, UPPER(LEFT(middlename, 1)) AS mname, lastname, position AS pname, cabinet, GROUP_CONCAT(start_time ORDER BY day_id ASC SEPARATOR ',') AS start_time, GROUP_CONCAT(end_time ORDER BY day_id SEPARATOR ',') AS end_time FROM doctors AS d JOIN day_records AS dr ON d.doctor_id = dr.doctor_id WHERE role = ? GROUP BY d.doctor_id",

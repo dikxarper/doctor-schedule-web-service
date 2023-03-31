@@ -12,9 +12,7 @@ import express from "express"
 import morgan from "morgan"
 import cookieParser from "cookie-parser"
 import expressLayouts from "express-ejs-layouts"
-import "express-async-errors"
 import session from "express-session"
-import passport from "passport"
 
 // Define routes
 import { authRoute } from "./api/routes/authorizations.js"
@@ -52,10 +50,6 @@ app.use(
   })
 )
 
-// passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
-
 // Cookie Parser
 app.use(cookieParser())
 
@@ -66,16 +60,11 @@ if (process.env.NODE_ENV === "development") {
 
 // Mount the static middleware to serve static files in the public folder
 app.use(express.static(__dirname + "/public"))
-
 app.use(expressLayouts)
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-// test route
-app.get("/test", (req, res) => {
-  res.render("test")
-})
-
+// local id
 app.locals.user = {
   id: null,
 }
