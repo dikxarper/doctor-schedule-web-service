@@ -1,81 +1,292 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Profile</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="container">
-        <h2 class="mb-5">User's Bio</h2>
+<head>
+  <title>Profile</title>
+  <link rel="stylesheet" href="/css/profile.css" />
+</head>
+<body>
+  <% if(locals.role) { %>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/admin">Домой</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Профиль</li>
+    </ol>
+  </nav>
+  <% } %>
+  <div id="userInfo" class="wrapper">
+    <div class="container">
+      <h2 class="mb-5">Профиль</h2>
 
-        <div class="main-body">
-          <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div
-                    class="d-flex flex-column align-items-center text-center"
-                  >
-                    <img
-                      src="/img/profile_img.png"
-                      alt="Admin"
-                      class="rounded-circle"
-                      width="150"
-                    />
-                    <div class="mt-3">
-                      <h4>Name</h4>
-                      <p class="text-muted font-size-sm">Department</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-8">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">Name_</div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">Email_</div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">Phone_</div>
-                  </div>
-                  <hr />
-
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">City</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">City_</div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a class="btn btn-info" href="#">Edit</a>
-                    </div>
+      <div class="main-body">
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img
+                    src="/img/profile_img.png"
+                    alt="Admin"
+                    class="rounded-circle"
+                    width="150"
+                  />
+                  <div class="mt-3">
+                    <h4><%= user.lname %> <%= user.fname %></h4>
+                    <p class="text-muted font-size-sm"><%= user.depname %></p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="col-md-8">
+            <form
+              id="editForm"
+              action="/profile/<%= user.id %>/edit"
+              method="post"
+            >
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="fullname" class="col-sm-3 col-form-label"
+                      >ФИО</label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="fullname"
+                        id="fullname"
+                        disabled
+                        value="<%= user.lname %> <%= user.fname %> <%= user.mname %>"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="form-group row">
+                    <label for="email" class="col-sm-3 col-form-label"
+                      >Почта</label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        id="email"
+                        value="<%= user.email %>"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="form-group row">
+                    <label for="phone" class="col-sm-3 col-form-label"
+                      >Телефон</label
+                    >
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        name="phone"
+                        class="form-control"
+                        id="phone"
+                        value="<%= user.phone %>"
+                      />
+                    </div>
+                  </div>
+                  <hr />
+
+                  <% if (!locals.role) { %>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <button
+                        type="submit"
+                        id="editButton"
+                        class="btn btn-primary"
+                      >
+                        Обновить
+                      </button>
+                    </div>
+                  </div>
+                  <% } %>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
+
+        <!-- Week Schedule -->
+
+        <h4 class="mt-5 mb-4">Недельное Расписание</h4>
+
+        <form action="/profile/<%= user.id %>/editSchedule" method="post">
+          <div class="row align-items-center">
+            <div class="col-md-11">
+              <table class="table table-bordered text-center">
+                <thead>
+                  <tr>
+                    <th scope="col">Понедельник</th>
+                    <th scope="col">Вторник</th>
+                    <th scope="col">Среда</th>
+                    <th scope="col">Четверг</th>
+                    <th scope="col">Пятница</th>
+                    <th scope="col">Суббота</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <form action="" method="post">
+                      <td>
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Username"
+                            name="monday_start"
+                            value="<%= sched[0].start_time %>"
+                            size="2"
+                          />
+                          <span class="input-group-text">-</span>
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Server"
+                            name="monday_end"
+                            value="<%= sched[0].end_time %>"
+                            size="2"
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Username"
+                            name="tuesday_start"
+                            value="<%= sched[1].start_time %>"
+                            size="2"
+                          />
+                          <span class="input-group-text">-</span>
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Server"
+                            name="tuesday_end"
+                            value="<%= sched[1].end_time %>"
+                            size="2"
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Username"
+                            name="wednesday_start"
+                            value="<%= sched[2].start_time %>"
+                            size="2"
+                          />
+                          <span class="input-group-text">-</span>
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Server"
+                            name="wednesday_end"
+                            value="<%= sched[2].end_time %>"
+                            size="2"
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Username"
+                            name="thursday_start"
+                            value="<%= sched[3].start_time %>"
+                            size="2"
+                          />
+                          <span class="input-group-text">-</span>
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Server"
+                            name="thursday_end"
+                            value="<%= sched[3].end_time %>"
+                            size="2"
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Username"
+                            name="friday_start"
+                            value="<%= sched[4].start_time %>"
+                            size="2"
+                          />
+                          <span class="input-group-text">-</span>
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Server"
+                            name="friday_end"
+                            value="<%= sched[4].end_time %>"
+                            size="2"
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Username"
+                            name="saturday_start"
+                            value="<%= sched[5].start_time %>"
+                            size="2"
+                          />
+                          <span class="input-group-text">-</span>
+                          <input
+                            type="text"
+                            id="form-control"
+                            class="form-control form-control-custom"
+                            aria-label="Server"
+                            name="saturday_end"
+                            value="<%= sched[5].end_time %>"
+                            size="2"
+                          />
+                        </div>
+                      </td>
+                    </form>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <% if (!locals.role) { %>
+            <div class="col text-center">
+              <button type="submit" id="editButton" class="btn btn-primary">
+                >
+              </button>
+            </div>
+            <% } %>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
 
-    
-  </body>
-</html>
+  <script src="/js/disable-checkbox.js"></script>
+</body>

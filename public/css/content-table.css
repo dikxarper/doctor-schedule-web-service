@@ -1,7 +1,6 @@
 /* Content Table */
 .content-table-container {
-  margin-top: 3
-  rem;
+  margin-top: 3rem;
 }
 
 .content-table-title {
@@ -73,4 +72,14 @@
 
 .content.active {
   display: block;
+}
+
+.fullname-custom {
+  color: #4a77ba;
+
+  text-decoration: none;
+}
+
+.fullname-custom:hover {
+  color: #0532a3;
 }

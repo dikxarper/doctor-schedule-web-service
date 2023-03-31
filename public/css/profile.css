@@ -1,0 +1,6 @@
+.regular-checkbox:checked,
+.regular-checkbox:checked:hover {
+  background-color: #39c;
+  color: #fff !important;
+  outline: 0;
+}

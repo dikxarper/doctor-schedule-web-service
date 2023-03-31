@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Bootstrap link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+  </head>
+
+  <!-- user-select-none -->
+  <body
+    class="d-flex flex-column min-vh-100 user-select-none"
+    cz-shortcut-listen="true"
+  >
+    <div class="content-table text-center mt-4">
+      <div class="content active" id="content-1">
+        <!-- Таблица  для медсестр -->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" rowspan="2">#</th>
+              <th scope="col" rowspan="2">Ф.И.О врача</th>
+              <th scope="col" rowspan="2">Должность</th>
+              <th scope="col" colspan="6">Неделя</th>
+              <th scope="col" rowspan="2">Кабинет</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th></th>
+              <td></td>
+              <td></td>
+              <td>Пон</td>
+              <td>Вт</td>
+              <td>Ср</td>
+              <td>Чт</td>
+              <td>Пт</td>
+              <td>Суб</td>
+              <td></td>
+            </tr>
+            <% users.forEach(function(user,index){ %>
+            <tr>
+              <th scope="row">1</th>
+              <td>
+                <%= user.lastname %> <%= user.fname %>. <%= user.mname %>.
+              </td>
+
+              <td><%= user.pname %></td>
+              <td><%= start[index][0] %> - <%= end[index][0] %></td>
+              <td><%= start[index][1] %> - <%= end[index][1] %></td>
+              <td><%= start[index][2] %> - <%= end[index][2] %></td>
+              <td><%= start[index][3] %> - <%= end[index][3] %></td>
+              <td><%= start[index][4] %> - <%= end[index][4] %></td>
+              <td><%= start[index][5] %></td>
+              <td><%= user.cabinet %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/auth/numeric-input.js"></script>
+    <script src="/js/auth/password-toggler.js"></script>
+  </body>
+</html>

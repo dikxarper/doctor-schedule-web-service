@@ -8,50 +8,24 @@
   <body>
     <main class="flex-shrink-0 mb-5">
       <div class="content-table-container">
-        <div class="content-table-title mb-3">Doctor's Schedule</div>
-        <div class="content-table-menu">
-          <ul>
-            <li class="dropdown">
-              <a href="#" class="dropbtn"
-                >Этаж
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-caret-down"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"
-                  />
-                </svg>
-              </a>
-              <div class="dropdown-content">
-                <a href="#" data-show="content-1">Этаж 1</a>
-                <a href="#" data-show="content-2">Этаж 2</a>
-                <a href="#" data-show="content-3">Этаж 3</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="content-table mt-4">
+        <div class="content-table-title mb-3">Расписание врачей</div>
+        <div class="content-table text-center mt-4">
           <div class="content active" id="content-1">
-            <h1 class="mb-3">Option 1 Content</h1>
+            <!-- Таблица  для медсестр -->
             <table class="table table-bordered">
               <thead>
                 <tr>
                   <th scope="col" rowspan="2">#</th>
-                  <th scope="col" rowspan="2">Name</th>
-                  <th scope="col" rowspan="2">Lastname</th>
-                  <th scope="col" rowspan="2">Email</th>
-                  <th scope="col" colspan="7">Schedule</th>
+                  <th scope="col" rowspan="2">Ф.И.О врача</th>
+                  <th scope="col" rowspan="2">Должность</th>
+                  <th scope="col" colspan="6">Неделя</th>
+                  <th scope="col" rowspan="2">Кабинет</th>
                 </tr>
               </thead>
+
               <tbody>
                 <tr>
                   <th></th>
-                  <td></td>
                   <td></td>
                   <td></td>
                   <td>Пон</td>
@@ -60,105 +34,25 @@
                   <td>Чт</td>
                   <td>Пт</td>
                   <td>Суб</td>
-                  <td>Вс</td>
+                  <td></td>
                 </tr>
+                <% users.forEach(function(user,index){ %>
                 <tr>
                   <th scope="row">1</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>jacob_thornton@gmail.com</td>
-                  <td>10:00 - 18:00</td>
-                  <td>08:00 - 20:00</td>
-                  <td>10:00 - 18:00</td>
-                  <td>10:00 - 18:00</td>
-                  <td>10:00 - 18:00</td>
-                  <td>Выходной</td>
-                  <td>Выходной</td>
+                  <td>
+                    <%= user.lastname %> <%= user.fname %>. <%= user.mname %>.
+                  </td>
+
+                  <td><%= user.pname %></td>
+                  <td><%= start[index][0] %> - <%= end[index][0] %></td>
+                  <td><%= start[index][1] %> - <%= end[index][1] %></td>
+                  <td><%= start[index][2] %> - <%= end[index][2] %></td>
+                  <td><%= start[index][3] %> - <%= end[index][3] %></td>
+                  <td><%= start[index][4] %> - <%= end[index][4] %></td>
+                  <td><%= start[index][5] %></td>
+                  <td><%= user.cabinet %></td>
                 </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="content" id="content-2">
-            <h1>Option 2 Content</h1>
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col" rowspan="2">#</th>
-                  <th scope="col" rowspan="2">Name</th>
-                  <th scope="col" rowspan="2">Lastname</th>
-                  <th scope="col" rowspan="2">Email</th>
-                  <th scope="col" colspan="7">Schedule</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th></th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>Пон</td>
-                  <td>Вт</td>
-                  <td>Ср</td>
-                  <td>Чт</td>
-                  <td>Пт</td>
-                  <td>Суб</td>
-                  <td>Вс</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Lawrence</td>
-                  <td>mark_lawrence@gmail.com</td>
-                  <td>10:00 - 18:00</td>
-                  <td>08:00 - 20:00</td>
-                  <td>10:00 - 18:00</td>
-                  <td>10:00 - 18:00</td>
-                  <td>10:00 - 18:00</td>
-                  <td>Выходной</td>
-                  <td>Выходной</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="content" id="content-3">
-            <h1>Option 3 Content</h1>
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col" rowspan="2">#</th>
-                  <th scope="col" rowspan="2">Name</th>
-                  <th scope="col" rowspan="2">Lastname</th>
-                  <th scope="col" rowspan="2">Email</th>
-                  <th scope="col" colspan="7">Schedule</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th></th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>Пон</td>
-                  <td>Вт</td>
-                  <td>Ср</td>
-                  <td>Чт</td>
-                  <td>Пт</td>
-                  <td>Суб</td>
-                  <td>Вс</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Parkinson</td>
-                  <td>Hermet</td>
-                  <td>parkinson_hermet@gmail.com</td>
-                  <td>10:00 - 18:00</td>
-                  <td>08:00 - 20:00</td>
-                  <td>10:00 - 18:00</td>
-                  <td>10:00 - 18:00</td>
-                  <td>10:00 - 18:00</td>
-                  <td>Выходной</td>
-                  <td>Выходной</td>
-                </tr>
+                <% }) %>
               </tbody>
             </table>
           </div>
@@ -167,5 +61,6 @@
     </main>
 
     <script src="/js/content-table.js"></script>
+    <script src="/js/index-replace.js"></script>
   </body>
 </html>

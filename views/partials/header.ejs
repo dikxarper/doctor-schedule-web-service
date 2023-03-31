@@ -1,3 +1,4 @@
+<% if (!locals.role ) { %>
 <header>
   <nav
     class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom"
@@ -14,16 +15,31 @@
         <a href="/" class="nav-link px-2 link-dark">Главная</a>
       </li>
       <li id="nav-link" class="nav-item">
-        <a href="/about" class="nav-link px-2 link-dark">О нас</a>
+        <a href="/table" class="nav-link px-2 link-dark">Таблица</a>
       </li>
     </ul>
 
     <div class="col-md-3 text-end">
-      <% if(!session.user_id) { %>
+      <% if(locals.isLogged ==='isLoggedOut') { %>
       <a href="/auth" class="btn btn-outline-primary">Войти</a>
       <% } else { %>
-      <a href="/auth" class="btn btn-outline-primary">Профиль</a>
+      <a href="/profile/<%= locals.user.id %> " class="btn btn-outline-primary"
+        >Профиль</a
+      >
+      <a href="/auth/logout" class="btn btn-outline-primary">Выйти</a>
       <% } %>
     </div>
   </nav>
 </header>
+<% } else {%>
+<header>
+  <nav
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom"
+  >
+    <h3>
+      <a href="/admin" class="text-decoration-none text-primary">Admin Page</a>
+    </h3>
+    <a href="/auth/logout" class="btn btn-outline-primary">Выйти</a>
+  </nav>
+</header>
+<% } %>

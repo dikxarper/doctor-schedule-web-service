@@ -10,3 +10,14 @@
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+.bi-eye-slash {
+  position: absolute;
+  top: 32%;
+  right: 4%;
+  cursor: pointer;
+}
+
+hr {
+  
+}

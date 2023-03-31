@@ -1,7 +1,11 @@
 import { Router } from "express"
-import { getIndex, postIndex } from "../controllers/index.js"
+import * as indexController from "../controllers/index.js"
 const router = Router()
 
-router.get("/", getIndex)
+// index route
+router.get("/", indexController.getIndex)
+
+//about route
+router.get("/table", indexController.getTable)
 
 export { router as indexRoute }

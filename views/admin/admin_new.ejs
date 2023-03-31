@@ -1,0 +1,280 @@
+<head>
+  <title>Новый Пользователь</title>
+  <link rel="stylesheet" href="/css/auth.css" />
+</head>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/admin">Домой</a></li>
+    <li class="breadcrumb-item active" aria-current="page">
+      Новый Пользователь
+    </li>
+  </ol>
+</nav>
+
+<form
+  class="row g-3 needs-validation"
+  method="post"
+  action="/admin/new"
+  novalidate
+>
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        placeholder="Имя"
+        name="fullname"
+      />
+      <label for="floatingInput">ФИО</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingNumber"
+        placeholder="ИИН"
+        name="uin"
+      />
+      <label for="floatingNumber">ИИН</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        placeholder="Почта"
+        name="department"
+      />
+      <label for="floatingInput">Департамент</label>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        placeholder="Позиция"
+        name="position"
+      />
+      <label for="floatingInput">Должность</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        class="form-control"
+        id="floatingInput"
+        placeholder="Почта"
+        name="email"
+      />
+      <label for="floatingInput">Email</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Пароль"
+        name="password"
+      />
+      <i class="bi bi-eye-slash" id="togglePassword"></i>
+      <label for="floatingPassword">Пароль</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingNumber"
+        placeholder="Phone"
+        name="phone"
+      />
+      <label for="floatingNumber">Phone</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        placeholder="Кабинет"
+        name="cabinet"
+      />
+      <label for="floatingInput">Кабинет</label>
+    </div>
+  </div>
+
+  <div class="row align-items-center">
+    <div class="col-md-12">
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th scope="col">Понедельник</th>
+            <th scope="col">Вторник</th>
+            <th scope="col">Среда</th>
+            <th scope="col">Четверг</th>
+            <th scope="col">Пятница</th>
+            <th scope="col">Суббота</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <form action="" method="post">
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="monday_start"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="monday_end"
+                    size="2"
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="tuesday_start"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="tuesday_end"
+                    size="2"
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="wednesday_start"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="wednesday_end"
+                    size="2"
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="thursday_start"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="thursday_end"
+                    size="2"
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="friday_start"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="friday_end"
+                    size="2"
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="saturday_start"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="saturday_end"
+                    size="2"
+                  />
+                </div>
+              </td>
+            </form>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-12 d-grid">
+    <button class="btn btn-primary" type="submit">Создать</button>
+  </div>
+</form>
+
+<script src="/js/auth/numeric-input.js"></script>
+<script src="/js/auth/password-toggler.js"></script>

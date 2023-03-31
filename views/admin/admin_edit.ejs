@@ -1,0 +1,263 @@
+<head>
+  <title>New User</title>
+  <link rel="stylesheet" href="/css/auth.css" />
+</head>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+  </ol>
+</nav>
+
+<form
+  class="row g-3 needs-validation"
+  method="post"
+  action="/admin/<%= user.id %>/edit"
+  novalidate
+>
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        value="<%= user.lname %> <%= user.fname %> <%= user.mname %>"
+        name="fullname"
+      />
+      <label for="floatingInput">ФИО</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        value="<%= user.dname %>"
+        name="department"
+      />
+      <label for="floatingInput">Департамент</label>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        value="<%= user.pname %>"
+        name="position"
+      />
+      <label for="floatingInput">Должность</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        class="form-control"
+        id="floatingInput"
+        value="<%= user.email %>"
+        name="email"
+      />
+      <label for="floatingInput">Email</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingNumber"
+        value="<%= user.phone %>"
+        name="phone"
+      />
+      <label for="floatingNumber">Phone</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        value="<%= user.cabinet %>"
+        name="cabinet"
+      />
+      <label for="floatingInput">Кабинет</label>
+    </div>
+  </div>
+
+  <div class="row align-items-center">
+    <div class="col-md-12">
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th scope="col">Понедельник</th>
+            <th scope="col">Вторник</th>
+            <th scope="col">Среда</th>
+            <th scope="col">Четверг</th>
+            <th scope="col">Пятница</th>
+            <th scope="col">Суббота</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <form action="" method="post">
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="monday_start"
+                    value="<%= sched[0].start_time %>"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="monday_end"
+                    value="<%= sched[0].end_time %>"
+                    size="2"
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="tuesday_start"
+                    value="<%= sched[1].end_time %>"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="tuesday_end"
+                    value="<%= sched[1].end_time %>"
+                    size="2"
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="wednesday_start"
+                    value="<%= sched[2].end_time %>"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="wednesday_end"
+                    value="<%= sched[2].end_time %>"
+                    size="2"
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="thursday_start"
+                    value="<%= sched[3].end_time %>"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="thursday_end"
+                    value="<%= sched[3].end_time %>"
+                    size="2"
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="friday_start"
+                    value="<%= sched[4].end_time %>"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="friday_end"
+                    value="<%= sched[4].end_time %>"
+                    size="2"
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Username"
+                    name="saturday_start"
+                    value="<%= sched[5].end_time %>"
+                    size="2"
+                  />
+                  <span class="input-group-text">-</span>
+                  <input
+                    type="text"
+                    id="form-control"
+                    class="form-control form-control-custom"
+                    aria-label="Server"
+                    name="saturday_end"
+                    value="<%= sched[5].end_time %>"
+                    size="2"
+                  />
+                </div>
+              </td>
+            </form>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-12 d-grid">
+    <button class="btn btn-primary" type="submit">Изменить</button>
+  </div>
+</form>
+
+<script src="/js/auth/numeric-input.js"></script>
+<script src="/js/auth/password-toggler.js"></script>
