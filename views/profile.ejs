@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="/css/profile.css" />
 </head>
 <body>
-  <% if(locals.role) { %>
+  <% if(locals.role === 'admin') { %>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/admin">Домой</a></li>
@@ -91,7 +91,7 @@
                   </div>
                   <hr />
 
-                  <% if (!locals.role) { %>
+                  <% if (locals.role === 'user') { %>
                   <div class="row">
                     <div class="col-sm-12">
                       <button
@@ -275,7 +275,7 @@
               </table>
             </div>
 
-            <% if (!locals.role) { %>
+            <% if (locals.role === 'user') { %>
             <div class="col text-center">
               <button type="submit" id="editButton" class="btn btn-primary">
                 >

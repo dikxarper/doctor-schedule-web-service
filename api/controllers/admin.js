@@ -77,6 +77,8 @@ export async function postAdminNew(req, res) {
       [6, id, saturday_start, saturday_end],
     ]
 
+    
+
     if (
       !uin ||
       !password ||

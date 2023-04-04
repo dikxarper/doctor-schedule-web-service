@@ -23,8 +23,6 @@ export async function getLogin(req, res) {
 export async function postLogin(req, res) {
   try {
     const { uin, password } = req.body
-    if (!errors.isEmpty())
-      return res.json({ message: "Ошибка при логине", errors })
 
     if (!uin || !password)
       return res.json({
@@ -56,15 +54,15 @@ export async function postLogin(req, res) {
             )
 
             res.cookie("token", token)
-            req.app.locals.isLogged = "isLoggedIn"
+            res.app.locals.role = "user"
+            res.app.locals.isLogged = true
 
+            // Redirect to Admin
             if (result[0].role === "admin") {
               res.app.locals.role = "admin"
               res.redirect("/admin")
             } else {
-              return res
-                .status(StatusCodes.OK)
-                .redirect(`/profile/${result[0].doctor_id}`)
+              return res.redirect(`/profile/${result[0].doctor_id}`)
             }
           }
         }
@@ -77,9 +75,10 @@ export async function postLogin(req, res) {
 
 // LOGOUT route
 export async function logout(req, res) {
-  req.app.locals.isLogged = "isLoggedOut"
-  req.app.locals.user = null
-  req.app.locals.role = null
+  req.app.locals.isLogged = false
+  req.app.locals.user = "user"
+
+  req.app.locals.role = "user"
   res.clearCookie("token")
 
   req.session.destroy((error) => {

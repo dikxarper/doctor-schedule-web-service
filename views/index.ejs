@@ -38,18 +38,18 @@
                 </tr>
                 <% users.forEach(function(user,index){ %>
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row"><%= index + 1 %></th>
                   <td>
                     <%= user.lastname %> <%= user.fname %>. <%= user.mname %>.
                   </td>
 
                   <td><%= user.pname %></td>
-                  <td><%= start[index][0] %> - <%= end[index][0] %></td>
-                  <td><%= start[index][1] %> - <%= end[index][1] %></td>
-                  <td><%= start[index][2] %> - <%= end[index][2] %></td>
-                  <td><%= start[index][3] %> - <%= end[index][3] %></td>
-                  <td><%= start[index][4] %> - <%= end[index][4] %></td>
-                  <td><%= start[index][5] %></td>
+                  <td><%= scheds[index][0] %></td>
+                  <td><%= scheds[index][1] %></td>
+                  <td><%= scheds[index][2] %></td>
+                  <td><%= scheds[index][3] %></td>
+                  <td><%= scheds[index][4] %></td>
+                  <td><%= scheds[index][5] %></td>
                   <td><%= user.cabinet %></td>
                 </tr>
                 <% }) %>

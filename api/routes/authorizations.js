@@ -11,6 +11,6 @@ router
   .post(AuthController.postLogin, authMiddleware)
 
 // Logout router
-router.get("/logout", AuthController.logout)
+router.get("/logout", authMiddleware, AuthController.logout)
 
 export { router as authRoute }

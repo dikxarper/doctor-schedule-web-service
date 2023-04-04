@@ -64,10 +64,10 @@ app.use(expressLayouts)
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-// local id
-app.locals.user = {
-  id: null,
-}
+// The locals variables
+app.locals.isLogged = false
+app.locals.role = "user"
+
 // ./api/routes
 app.use("/", indexRoute)
 app.use("/auth", authRoute)

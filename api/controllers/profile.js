@@ -48,8 +48,6 @@ export async function patchProfile(req, res) {
   )
 }
 
-// MultiInsert
-
 // POST Schedule of the doctor
 export async function postSchedule(req, res) {
   const {
@@ -73,7 +71,6 @@ export async function postSchedule(req, res) {
     [id],
     (error, result) => {
       if (error) console.log(error)
-      console.log(result[0])
       var params = [
         [result[0].schedule_id, monday_start, monday_end],
         [result[1].schedule_id, tuesday_start, tuesday_end],

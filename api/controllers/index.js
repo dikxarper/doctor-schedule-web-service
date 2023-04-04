@@ -8,20 +8,28 @@ export async function getIndex(req, res) {
       if (error) console.log(error)
 
       var startArr = [],
-        endArr = []
+        endArr = [],
+        scheds = []
+
       console.log(result)
       for (let i = 0; i < result.length; i++) {
         startArr[i] = result[i].start_time.split(",")
         endArr[i] = result[i].end_time.split(",")
+        var temp = []
         for (let j = 0; j < startArr[i].length; j++) {
-          if (startArr[i][j] === "") startArr[i][j] = "Выходной"
+          if (startArr[i][j] === "") {
+            temp.push("Выходной")
+            continue
+          }
+          temp.push(startArr[i][j] + " - " + endArr[i][j])
         }
+        scheds.push(temp)
       }
+      console.log(scheds)
 
       return res.render("index", {
         users: result,
-        start: startArr,
-        end: endArr,
+        scheds: scheds,
       })
     }
   )

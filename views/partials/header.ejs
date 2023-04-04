@@ -1,4 +1,4 @@
-<% if (!locals.role ) { %>
+<% if (locals.role === 'user' ) { %>
 <header>
   <nav
     class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2 border-bottom"
@@ -20,13 +20,13 @@
     </ul>
 
     <div class="col-md-3 text-end">
-      <% if(locals.isLogged ==='isLoggedOut') { %>
-      <a href="/auth" class="btn btn-outline-primary">Войти</a>
-      <% } else { %>
+      <% if(locals.isLogged === true) { %>
       <a href="/profile/<%= locals.user.id %> " class="btn btn-outline-primary"
         >Профиль</a
       >
       <a href="/auth/logout" class="btn btn-outline-primary">Выйти</a>
+      <% } else { %>
+      <a href="/auth" class="btn btn-outline-primary">Войти</a>
       <% } %>
     </div>
   </nav>
