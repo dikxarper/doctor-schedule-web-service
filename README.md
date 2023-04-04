@@ -8,7 +8,7 @@ Dynamic website for doctor's schedule table with authorization. The website was 
 
 ````console
 git clone https://github.com/dikxarper/doctor-schedule-web-service
-```console
+```
 
 После переходим в нашу папку
 
