@@ -5,16 +5,28 @@ Dynamic website for doctor's schedule table with authorization. The website was 
 ## Этапы запуска проекта
 
 Проект можно скачать в арихивной форме, или через команду
-`git`
+
+````console
+git clone https://github.com/dikxarper/doctor-schedule-web-service
+```console
+
 После переходим в нашу папку
-`cd doctor-schedule-web-service`
+
+```console
+cd doctor-schedule-web-service
+```
+
 Теперь вам нужно будет установить нужные библиотеки
-`npm install`
+
+```console
+npm install
+```
 
 ## Нужные файлы для запуска
 
 Вам нужно будет создать файл .env со следующими переменными. Важно помнить, что переменные пишутся без кавычок. Например `PORT = 2500`, вместо `PORT = "2500"`
-`
+
+```env
 // Local Port
 PORT = Локальный порт для тестирования или разработки
 
@@ -30,6 +42,7 @@ SESSION_SECRET = Секретный ключ для сессий
 // JWT secret
 JWT_SECRET = Секретный ключ для JWT токена
 JWT_EXPIRES = Срок действия токена
+```
 
 ## Как работает веб-сервис
 
@@ -49,3 +62,4 @@ JWT_EXPIRES = Срок действия токена
 3. Проект не имеет кастомное промежуточное ПО для ошибок, для авторизации;
 4. Данные в MySQL не построены по принципу normalization;
 5. Пользователь не сможет восстановаить пароль при потерии;
+````
