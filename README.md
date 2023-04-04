@@ -6,19 +6,19 @@ Dynamic website for doctor's schedule table with authorization. The website was 
 
 Проект можно скачать в арихивной форме, или через команду
 
-````console
+```bash
 git clone https://github.com/dikxarper/doctor-schedule-web-service
-```console
+```
 
 После переходим в нашу папку
 
-```console
+```bash
 cd doctor-schedule-web-service
 ```
 
 Теперь вам нужно будет установить нужные библиотеки
 
-```console
+```bash
 npm install
 ```
 
@@ -62,4 +62,3 @@ JWT_EXPIRES = Срок действия токена
 3. Проект не имеет кастомное промежуточное ПО для ошибок, для авторизации;
 4. Данные в MySQL не построены по принципу normalization;
 5. Пользователь не сможет восстановаить пароль при потерии;
-````
