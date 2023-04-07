@@ -6,7 +6,7 @@ Dynamic website for doctor's schedule table with authorization. The website was 
 
 Проект можно скачать в арихивной форме, или через команду
 
-```bash
+```git
 git clone https://github.com/dikxarper/doctor-schedule-web-service
 ```
 
